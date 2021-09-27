@@ -1,4 +1,4 @@
-# Guitar app
+# Taburette
 
 [![License](https://img.shields.io/github/license/kostmetallist/taburette?color=blue)](https://github.com/kostmetallist/taburette/blob/master/LICENSE)
 [![GitHub contributors](https://img.shields.io/github/contributors/kostmetallist/taburette.svg)](https://github.com/kostmetallist/taburette/graphs/contributors/)
