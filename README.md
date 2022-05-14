@@ -1,9 +1,7 @@
 # Taburette
 
-[![License](https://img.shields.io/github/license/kostmetallist/taburette?color=blue)](https://github.com/kostmetallist/taburette/blob/master/LICENSE)
-[![GitHub contributors](https://img.shields.io/github/contributors/kostmetallist/taburette.svg)](https://github.com/kostmetallist/taburette/graphs/contributors/)
-
-<!-- [![Depfu](https://badges.depfu.com/badges/a1cb7603c54e7378f8d8203e024678b3/overview.svg)](https://depfu.com/github/kostmetallist/taburette?project_id=14088) -->
+[![License](https://img.shields.io/github/license/tankonstin-labs/taburette?color=blue)](https://github.com/tankonstin-labs/taburette/blob/master/LICENSE)
+[![GitHub contributors](https://img.shields.io/github/contributors/tankonstin-labs/taburette.svg)](https://github.com/tankonstin-labs/taburette/graphs/contributors/)
 
 <p align="center">
   <img src="docs/images/logos/taburette-logo.png" alt="<icon here>" width="75%"/>
