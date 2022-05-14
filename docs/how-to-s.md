@@ -76,7 +76,9 @@ and npm comes with it. [More info](https://www.npmjs.com/get-npm).
 
 Next, you shall install all project dependencies. Go to the app directory and
 
-`npm install`
+```shell
+npm install
+```
 
 Now, you must only endure long await of downloading and unpacking.
 **Note**. This command will create a special directory `node_modules` inside the app

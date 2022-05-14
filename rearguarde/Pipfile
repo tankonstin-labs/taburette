@@ -13,8 +13,8 @@ sqlalchemy = "*"
 sqlalchemy-utils = "*"
 alembic = "*"
 flask-restx = "*"
-flask = "==1.1.4"
+flask = "*"
 flask-cors = "*"
 
 [requires]
-python_version = "3.9"
+python_version = "3.10"
