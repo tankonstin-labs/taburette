@@ -1,7 +1,7 @@
 # Taburette
 
 [![License](https://img.shields.io/github/license/tankonstin-labs/taburette?color=blue)](https://github.com/tankonstin-labs/taburette/blob/master/LICENSE)
-[![GitHub contributors](https://img.shields.io/github/contributors/tankonstin-labs/taburette.svg)](https://github.com/tankonstin-labs/taburette/graphs/contributors/)
+![Dev Activity](https://img.shields.io/github/commit-activity/m/tankonstin-labs/taburette/master)
 
 <p align="center">
   <img src="docs/images/logos/taburette-logo.png" alt="<icon here>" width="75%"/>
