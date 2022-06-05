@@ -4,6 +4,7 @@ import {
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import placeholder from '../assets/150.png';
+import '../index.css';
 
 export class SongCard extends Component {
     static propTypes = {
@@ -24,8 +25,11 @@ export class SongCard extends Component {
                             <div className="col-md-6">
                                 <div className="card-body">
                                     <h4 className="card-title">
-                                        {this.props.artist} - {this.props.trackName}
+                                        {this.props.trackName}
                                     </h4>
+                                    <h6 className="card-subtitle">
+                                        by {this.props.artist}
+                                    </h6>
                                 </div>
                             </div>
                         </div>
@@ -38,7 +42,6 @@ export class SongCard extends Component {
                 </MDBCol>
 
             </MDBRow>
-
         );
     }
 }
