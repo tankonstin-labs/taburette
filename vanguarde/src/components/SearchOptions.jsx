@@ -34,13 +34,19 @@ class SearchOptions extends Component {
                                             <MDBInput label="Artist name"
                                                 onChange={
                                                     (event) => {
-                                                        this.props.changeSearchQuery(ARTIST_QUERY, event.target.value);
+                                                        this.props.changeSearchQuery(
+                                                            ARTIST_QUERY,
+                                                            event.target.value,
+                                                        );
                                                     }
                                                 } group/>
                                             <MDBInput label="Song name"
                                                 onChange={
                                                     (event) => {
-                                                        this.props.changeSearchQuery(SONG_QUERY, event.target.value);
+                                                        this.props.changeSearchQuery(
+                                                            SONG_QUERY,
+                                                            event.target.value,
+                                                        );
                                                     }
                                                 }
                                                 group />
@@ -52,13 +58,19 @@ class SearchOptions extends Component {
                                         <MDBInput label="Album"
                                             onChange={
                                                 (event) => {
-                                                    this.props.changeSearchQuery(RELEASE_QUERY, event.target.value);
+                                                    this.props.changeSearchQuery(
+                                                        RELEASE_QUERY,
+                                                        event.target.value,
+                                                    );
                                                 }
                                             }
                                             group/>
                                         <Select onChange={
                                             (option) => {
-                                                this.props.changeSearchQuery(GENRE_QUERY, option.value);
+                                                this.props.changeSearchQuery(
+                                                    GENRE_QUERY,
+                                                    option.value,
+                                                );
                                             }
                                         }
                                         options={genreOptions} />
@@ -79,4 +91,3 @@ const mapStateToProps = (state) => ({});
 export default connect(mapStateToProps,
     {changeSearchQuery},
 )(SearchOptions);
-
