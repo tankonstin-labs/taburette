@@ -59,7 +59,9 @@ class SongList extends Component {
                     null}
                 {this.props.songList.map((value, index) => {
                     const trackName = value.name;
-                    return <SongCard key={index} artist="Someone cool" trackName={trackName}/>;
+                    const featuredArtists = value.release.artists.map(
+                        (artist) => artist.name).join(';');
+                    return <SongCard key={index} artist={featuredArtists} trackName={trackName}/>;
                 })}
             </MDBContainer>
         );
