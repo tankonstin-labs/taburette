@@ -15,3 +15,10 @@ code {
 .card-subtitle {
   color: #aaaaaa;
 }
+
+.empty-page-placeholder {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
