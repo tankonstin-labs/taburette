@@ -79,6 +79,7 @@ export const changeSearchQuery = (eventType, value) => {
 export function handleOmnibarChange(event) {
     const value = event.target.value;
     return (dispatch, getState, {apiConfig}) => {
+        debugger;
         dispatch(actions.changeSongQuery(value));
         makeSongQueryDebounced(dispatch, getState, {apiConfig});
     };

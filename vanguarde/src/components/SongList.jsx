@@ -23,7 +23,6 @@ class SongList extends Component {
     }
 
     componentDidMount() {
-        console.log('componentDidMount');
         this.props.getSongList();
     }
 
