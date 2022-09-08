@@ -1,15 +1,17 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import {createRoot} from 'react-dom/client';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 import {Provider} from 'react-redux';
+// TODO: get rid of deprecated functions usage
 import {configureStore, getDefaultMiddleware} from '@reduxjs/toolkit';
 import songReducer from './redux/songs';
 import searchReducer from './redux/search';
 
-import ReactNotification from 'react-notifications-component';
+// TODO: restore notifications functionality
+// import ReactNotification from 'react-notifications-component';
 import 'react-notifications-component/dist/theme.css';
 
 const config = {
@@ -32,12 +34,13 @@ const store = configureStore({
     devTools: true, // TODO: disable in production
 });
 
-ReactDOM.render(
+const root = createRoot(document.getElementById('root'));
+root.render(
     <Provider store={store}>
-        <ReactNotification />
+        {/* TODO: restore notifications functionality */}
+        {/* <ReactNotification /> */}
         <App />
     </Provider>,
-    document.getElementById('root'),
 );
 
 // If you want your app to work offline and load faster, you can change

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {MDBContainer, MDBFooter} from 'mdbreact';
+import {MDBContainer, MDBFooter} from 'mdb-react-ui-kit';
 
 export class JokerFooter extends Component {
     constructor(props) {

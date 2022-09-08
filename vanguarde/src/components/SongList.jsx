@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {SongCard} from './SongCard.jsx';
-import {MDBBtn, MDBCol, MDBContainer,
-    MDBIcon, MDBInput, MDBRow} from 'mdbreact';
+import {MDBBtn, MDBCol, MDBContainer, MDBIcon, MDBInput, MDBRow} from 'mdb-react-ui-kit';
 
 import {connect} from 'react-redux';
 import SearchOptions from './SearchOptions';
