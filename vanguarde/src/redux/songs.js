@@ -1,5 +1,4 @@
-import {current, createSlice} from '@reduxjs/toolkit';
-
+import {createSlice} from '@reduxjs/toolkit';
 import {makeSongQuery} from './common';
 
 const initialState = {
@@ -20,7 +19,7 @@ const songSlice = createSlice({
             const songList = action.payload;
             state.loading = false;
             state.songList = songList;
-            console.log('new state: ', current(state));
+            // console.log('new state: ', current(state)); // from @reduxjs/toolkit
         },
         fetchError: (state, action) => {
             state.loading = false;

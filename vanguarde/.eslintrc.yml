@@ -18,4 +18,3 @@ rules:
   max-len:
     - warn
     - code: 100
-

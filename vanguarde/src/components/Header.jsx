@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 import {
     MDBCollapse, MDBDropdown, MDBDropdownItem, MDBDropdownMenu,
     MDBDropdownToggle, MDBNavbar, MDBIcon, MDBNavbarBrand, MDBNavbarNav,
-    MDBNavbarToggler, MDBNavItem, MDBNavLink,
-} from 'mdbreact';
+    MDBNavbarToggler, MDBNavbarItem, MDBNavbarLink,
+} from 'mdb-react-ui-kit';
 
 export class Header extends Component {
     render() {
@@ -15,10 +15,10 @@ export class Header extends Component {
                 <MDBNavbarToggler/>
                 <MDBCollapse id="navbarCollapse3" navbar>
                     <MDBNavbarNav left>
-                        <MDBNavItem active>
-                            <MDBNavLink to="#!">Home</MDBNavLink>
-                        </MDBNavItem>
-                        <MDBNavItem>
+                        <MDBNavbarItem active>
+                            <MDBNavbarLink to="#!">Home</MDBNavbarLink>
+                        </MDBNavbarItem>
+                        <MDBNavbarItem>
                             <MDBDropdown>
                                 <MDBDropdownToggle nav caret>
                                     <span className="mr-2">Dropdown</span>
@@ -28,15 +28,15 @@ export class Header extends Component {
                                     <MDBDropdownItem href="#!">Another Action</MDBDropdownItem>
                                 </MDBDropdownMenu>
                             </MDBDropdown>
-                        </MDBNavItem>
+                        </MDBNavbarItem>
                     </MDBNavbarNav>
                     <MDBNavbarNav right>
-                        <MDBNavItem>
-                            <MDBNavLink to="#!">
+                        <MDBNavbarItem>
+                            <MDBNavbarLink to="#!">
                                 <MDBIcon icon="user" className="d-inline-inline" />{' '}
                                 <div className="d-none d-md-inline">Sign In</div>
-                            </MDBNavLink>
-                        </MDBNavItem>
+                            </MDBNavbarLink>
+                        </MDBNavbarItem>
                     </MDBNavbarNav>
                 </MDBCollapse>
             </MDBNavbar>

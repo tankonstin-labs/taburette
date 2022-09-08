@@ -70,7 +70,7 @@ export const changeSearchQuery = (eventType, value) => {
             dispatch(actions.changeGenreQuery(value));
             break;
         default:
-            console.log('Wrong eventType ', {eventType});
+            console.error('Wrong eventType ', {eventType});
         };
         makeSongQueryDebounced(dispatch, getState, {apiConfig});
     };

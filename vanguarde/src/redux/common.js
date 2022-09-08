@@ -11,15 +11,14 @@ export function handleSuccess(response) {
             onScreen: true,
         },
         type: 'success',
-        insert: 'top',
-        container: 'top-right',
+        insert: 'bottom',
+        container: 'bottom-right',
         animationIn: ['animated', 'fadeIn'],
         animationOut: ['animated', 'fadeOut'],
     });
 }
 
 export function handleError(errorObj) {
-    console.log({errorObj});
     store.addNotification({
         title: `HTTP error ${errorObj.statusCode}!`,
         message: 'Check console log for more info',
@@ -45,7 +44,7 @@ export function makeSongQuery(dispatch, getState, {apiConfig}, searchQuery = {})
         'releases.name': searchState.releaseQuery ? searchState.releaseQuery : null,
         'sort_by': searchState.sorting ? 'name!' + searchState.sorting : null,
     };
-    console.log(searchParams);
+
     axios.get(`${apiConfig.url}/songs-artists`, {params: searchParams})
         .then((res) => {
             dispatch(fetchSongListSuccess(res.data));
