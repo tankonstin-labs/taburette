@@ -1,19 +1,19 @@
 import React, {Component} from 'react';
 import {MDBContainer, MDBFooter} from 'mdbreact';
 
-export class Footer extends Component {
+export class JokerFooter extends Component {
     constructor(props) {
         super(props);
 
-
         this.footerClicks = 0;
         this.footerArray = [
-            '© ' + new Date().getFullYear() + ' Copyright Taburette',
-            'Шёл медведь по лесу, видит - машина горит. Сел в неё и сгорел',
-            'Copyright © 2021. All bears reserved.',
-            'Надел мужик шляпу.',
-            'А она ему как раз.',
-            'It\'s a bird... It\'s a plane... No, it is a Songsterr clone!',
+            // The only serious footer content piece
+            `© ${new Date().getFullYear()} Copyright Taburette`,
+            // Irrational humour appearances
+            'Шёл медведь по лесу, видит — машина горит. Сел в неё и сгорел.',
+            'Надел мужик шляпу, а она ему как раз.',
+            '\"Вы кто по знаку зодиака?\" \"Я рыба.\" \"А я — пиво!\"',
+            'Плохие шутки кончились, а хороших не будет.',
         ];
 
         this.state = {
@@ -23,7 +23,7 @@ export class Footer extends Component {
         this.handleFooterClick = this.handleFooterClick.bind(this);
     }
 
-    handleFooterClick(e) {
+    handleFooterClick() {
         this.footerClicks += 1;
         if (this.footerClicks > 5) {
             const newFooterText = this.footerArray[
