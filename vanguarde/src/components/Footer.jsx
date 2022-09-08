@@ -36,7 +36,7 @@ export class Footer extends Component {
     render() {
         return (
             <MDBFooter color="elegant-color"
-                className="font-small pt-4 mt-4 fixed-bottom"
+                className="font-small pt-4 mt-4"
                 onClick={this.handleFooterClick}
                 style={{
                     WebkitTouchCallout: 'none',
