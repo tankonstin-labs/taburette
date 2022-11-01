@@ -2,10 +2,10 @@ import React, {Component} from 'react';
 import {MDBCol, MDBContainer, MDBInput, MDBRow, MDBCard} from 'mdb-react-ui-kit';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import {changeSearchQuery} from '../redux/search';
-import {ARTIST_QUERY, RELEASE_QUERY, SONG_QUERY, GENRE_QUERY} from '../redux/search';
 import Select from 'react-select';
 
+import {changeSearchQuery} from '../redux/search';
+import {ARTIST_QUERY, RELEASE_QUERY, SONG_QUERY, GENRE_QUERY} from '../redux/search';
 
 const genreOptions = [
     {value: 'rock', label: 'Rock'},

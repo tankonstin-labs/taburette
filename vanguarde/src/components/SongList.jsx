@@ -4,6 +4,7 @@ import {SongCard} from './SongCard.jsx';
 import {MDBBtn, MDBCol, MDBContainer, MDBIcon, MDBInput, MDBRow} from 'mdb-react-ui-kit';
 
 import {connect} from 'react-redux';
+
 import SearchOptions from './SearchOptions';
 import {toggleSearchBar, handleOmnibarChange, handleSortToggle} from '../redux/search';
 import {getSongList} from '../redux/songs';
