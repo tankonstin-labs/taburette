@@ -37,7 +37,7 @@ export class JokerFooter extends Component {
     render() {
         return (
             <MDBFooter
-                className="font-small pt-4 mt-5 bg-dark bg-gradient text-light"
+                className="font-small pt-1 bg-dark bg-gradient text-light"
                 onClick={this.handleFooterClick}
                 style={{
                     WebkitTouchCallout: 'none',
