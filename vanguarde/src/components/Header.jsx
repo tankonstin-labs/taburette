@@ -1,44 +1,53 @@
 import React, {Component} from 'react';
 import {
-    MDBCollapse, MDBDropdown, MDBDropdownItem, MDBDropdownMenu,
-    MDBDropdownToggle, MDBNavbar, MDBIcon, MDBNavbarBrand, MDBNavbarNav,
-    MDBNavbarToggler, MDBNavbarItem, MDBNavbarLink, MDBBtn,
+    MDBCollapse, MDBNavbar, MDBNavbarBrand, MDBNavbarNav,
+    MDBNavbarItem, MDBNavbarLink, MDBContainer, MDBIcon,
 } from 'mdb-react-ui-kit';
 
 export class Header extends Component {
     render() {
         return (
-            <MDBNavbar color="elegant-color" dark expand="md">
-                <MDBNavbarBrand>
-                    <strong className="white-text">Taburette</strong>
-                </MDBNavbarBrand>
-                <MDBNavbarToggler/>
-                <MDBCollapse id="navbarCollapse3" navbar>
-                    <MDBNavbarNav left>
-                        <MDBNavbarItem active>
-                            <MDBNavbarLink to="#!">Home</MDBNavbarLink>
-                        </MDBNavbarItem>
-                        <MDBNavbarItem>
-                            <MDBDropdown>
-                                <MDBDropdownToggle nav caret>
-                                    <span className="mr-2">Dropdown</span>
-                                </MDBDropdownToggle>
-                                <MDBDropdownMenu>
-                                    <MDBDropdownItem href="#!">Action</MDBDropdownItem>
-                                    <MDBDropdownItem href="#!">Another Action</MDBDropdownItem>
-                                </MDBDropdownMenu>
-                            </MDBDropdown>
-                        </MDBNavbarItem>
-                    </MDBNavbarNav>
-                    <MDBNavbarNav right>
-                        <MDBNavbarItem>
-                            <MDBNavbarLink to="#!">
-                                <MDBIcon icon="user" className="d-inline-inline" />{' '}
-                                <div className="d-none d-md-inline">Sign In</div>
-                            </MDBNavbarLink>
-                        </MDBNavbarItem>
-                    </MDBNavbarNav>
-                </MDBCollapse>
+            <MDBNavbar bgColor='dark' color="elegant-color" dark expand='xl'>
+                <MDBContainer>
+                    <MDBNavbarBrand href='#!'>
+                        <strong className="white-text">Taburette</strong>
+                    </MDBNavbarBrand>
+                    {/* TODO: enable after class -> function components rearch */}
+                    {/* <MDBNavbarToggler
+                        type='button'
+                        aria-expanded='false'
+                        aria-label='Toggle navigation'
+                        onClick={() => setShowNav(!showNav)}
+                    >
+                        <MDBIcon icon='bars' fas />
+                    </MDBNavbarToggler> */}
+                    <MDBCollapse navbar>
+                        <MDBNavbarNav>
+                            <MDBNavbarItem>
+                                <MDBNavbarLink active aria-current='home' href="#!">Home</MDBNavbarLink>
+                            </MDBNavbarItem>
+                            <MDBNavbarItem>
+                                <MDBNavbarLink disabled aria-disabled='true' href="#!">About</MDBNavbarLink>
+                            </MDBNavbarItem>
+                            <MDBNavbarItem>
+                                <MDBNavbarLink disabled aria-disabled='true' href="#!">Help</MDBNavbarLink>
+                            </MDBNavbarItem>
+                        </MDBNavbarNav>
+                        <MDBNavbarNav right fullWidth={false}>
+                            {/* TODO: elaborate a way to combine icon and "sign in" in a one item w/o line separation */}
+                            <MDBNavbarItem>
+                                <MDBNavbarLink disabled aria-disabled='true' href="#!">
+                                    <MDBIcon icon='user' />
+                                </MDBNavbarLink>
+                            </MDBNavbarItem>
+                            <MDBNavbarItem>
+                                <MDBNavbarLink disabled aria-disabled='true' href="#!">
+                                    <span className='d-inline-flex'>Sign&nbsp;In</span>
+                                </MDBNavbarLink>
+                            </MDBNavbarItem>
+                        </MDBNavbarNav>
+                    </MDBCollapse>
+                </MDBContainer>
             </MDBNavbar>
         );
     }
