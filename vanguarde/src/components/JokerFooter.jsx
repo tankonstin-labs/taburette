@@ -35,8 +35,8 @@ export class JokerFooter extends Component {
 
     render() {
         return (
-            <MDBFooter color="elegant-color"
-                className="font-small pt-4 mt-4"
+            <MDBFooter
+                className="font-small pt-4 mt-5 bg-dark bg-gradient text-light"
                 onClick={this.handleFooterClick}
                 style={{
                     WebkitTouchCallout: 'none',
@@ -47,7 +47,7 @@ export class JokerFooter extends Component {
                     userSelect: 'none',
                 }}>
                 <div className="footer-copyright text-center py-3">
-                    <MDBContainer fluid >
+                    <MDBContainer fluid>
                         {this.state.footerText}
                     </MDBContainer>
                 </div>
