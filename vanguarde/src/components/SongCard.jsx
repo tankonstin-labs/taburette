@@ -1,5 +1,5 @@
 import {
-    MDBCard, MDBRow, MDBIcon, MDBBtn, MDBCol,
+    MDBCard, MDBRow, MDBCol,
 } from 'mdb-react-ui-kit';
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
@@ -15,9 +15,8 @@ export class SongCard extends Component {
 
     render() {
         return (
-
             <MDBRow className="pl-0">
-                <MDBCol md="10">
+                <MDBCol md="12">
                     <MDBCard className="align-middle mb-3 text-left">
                         <div className="row no-gutters">
                             <div className="col-md-1" style={{minWidth: '150px'}}>
@@ -36,12 +35,6 @@ export class SongCard extends Component {
                         </div>
                     </MDBCard>
                 </MDBCol>
-                <MDBCol md="2">
-                    <MDBBtn className="alignRight" color="elegant">
-                        <MDBIcon className="float-left" icon="download" size="2x"/>
-                    </MDBBtn>
-                </MDBCol>
-
             </MDBRow>
         );
     }

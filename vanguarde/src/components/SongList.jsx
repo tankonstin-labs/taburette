@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {SongCard} from './SongCard.jsx';
-import {MDBBtn, MDBCol, MDBContainer, MDBIcon, MDBInput, MDBRow} from 'mdb-react-ui-kit';
+import {
+    MDBBtn, MDBCol, MDBContainer, MDBIcon, MDBInputGroup, MDBRow,
+} from 'mdb-react-ui-kit';
 
 import {connect} from 'react-redux';
 
@@ -29,39 +31,58 @@ class SongList extends Component {
     render() {
         return (
             <MDBContainer>
-                <MDBRow className="d-flex flex-row">
+                <MDBRow className="d-flex justify-content-center">
                     <MDBCol md="10">
-                        <MDBInput label="Search" onChange={this.props.handleOmnibarChange}/>
+                        <MDBInputGroup className='mb-3'>
+                            <input
+                                className='form-control'
+                                placeholder="Search for your tabs..."
+                                type='text'
+                                onChange={this.props.handleOmnibarChange}
+                            />
+                            <MDBBtn
+                                color="dark"
+                                onClick={this.props.toggle}
+                            >
+                                <MDBIcon icon="gear" />
+                            </MDBBtn>
+                        </MDBInputGroup>
                     </MDBCol>
-                    <MDBCol md="2">
-                        <MDBBtn size="lg"
+                </MDBRow>
+                <MDBRow className="d-flex justify-content-end">
+                    <MDBCol md="10">
+                        {
+                            this.props.searchBarIsVisible ?
+                                <SearchOptions /> :
+                                null
+                        }
+                    </MDBCol>
+                </MDBRow>
+                <MDBRow className="d-flex justify-content-end">
+                    <MDBCol md="1">
+                        <MDBBtn
                             color="elegant"
-                            onClick={this.props.toggle}>
-                            <MDBIcon icon="tools" size="2x"/>
+                            onClick={this.props.handleSortToggle}
+                        >
+                            <MDBIcon
+                                icon={
+                                    this.props.sorting === 'asc' ? 'sort-amount-down' : 'sort-amount-up'
+                                }
+                                size="2x"
+                            />
                         </MDBBtn>
                     </MDBCol>
                 </MDBRow>
-                <MDBRow>
-                    <MDBBtn
-                        color="elegant"
-                        onClick={this.props.handleSortToggle}
-                    >
-                        <MDBIcon
-                            icon={
-                                this.props.sorting === 'asc' ? 'sort-amount-down' : 'sort-amount-up'
-                            }
-                            size="2x"/>
-                    </MDBBtn>
+                <MDBRow className='mt-3'>
+                    {
+                        this.props.songList.map((value, index) => {
+                            const trackName = value.name;
+                            const featuredArtists = value.release.artists.map(
+                                (artist) => artist.name).join(';');
+                            return <SongCard key={index} artist={featuredArtists} trackName={trackName} />;
+                        })
+                    }
                 </MDBRow>
-                {this.props.searchBarIsVisible ?
-                    <SearchOptions/> :
-                    null}
-                {this.props.songList.map((value, index) => {
-                    const trackName = value.name;
-                    const featuredArtists = value.release.artists.map(
-                        (artist) => artist.name).join(';');
-                    return <SongCard key={index} artist={featuredArtists} trackName={trackName}/>;
-                })}
             </MDBContainer>
         );
     }
