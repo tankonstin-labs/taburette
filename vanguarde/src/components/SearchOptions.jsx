@@ -2,10 +2,10 @@ import React, {Component} from 'react';
 import {MDBCol, MDBContainer, MDBInput, MDBRow, MDBCard} from 'mdb-react-ui-kit';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import {changeSearchQuery} from '../redux/search';
-import {ARTIST_QUERY, RELEASE_QUERY, SONG_QUERY, GENRE_QUERY} from '../redux/search';
 import Select from 'react-select';
 
+import {changeSearchQuery} from '../redux/search';
+import {ARTIST_QUERY, RELEASE_QUERY, SONG_QUERY, GENRE_QUERY} from '../redux/search';
 
 const genreOptions = [
     {value: 'rock', label: 'Rock'},
@@ -23,12 +23,14 @@ class SearchOptions extends Component {
             <MDBContainer className="mb-2 pl-0 ml-0">
                 <MDBCol md="9" className="pl-0">
                     <MDBCard>
-                        <p className="h4 text-center py-4">Search filters</p>
-                        <MDBRow className="ml-2 mr-2">
+                        <p className="h4 text-center py-4">Advanced Search</p>
+                        <MDBRow className="ml-2 mr-2 p-3">
                             <MDBCol md="6">
                                 <form>
                                     <div className="grey-text">
-                                        <MDBInput label="Artist name"
+                                        <MDBInput
+                                            group
+                                            label="Artist"
                                             onChange={
                                                 (event) => {
                                                     this.props.changeSearchQuery(
@@ -36,8 +38,12 @@ class SearchOptions extends Component {
                                                         event.target.value,
                                                     );
                                                 }
-                                            } group/>
-                                        <MDBInput label="Song name"
+                                            }
+                                        />
+                                        <MDBInput
+                                            group
+                                            label="Track"
+                                            className='mt-2'
                                             onChange={
                                                 (event) => {
                                                     this.props.changeSearchQuery(
@@ -46,13 +52,15 @@ class SearchOptions extends Component {
                                                     );
                                                 }
                                             }
-                                            group />
+                                        />
                                     </div>
                                 </form>
                             </MDBCol>
                             <MDBCol md="6">
                                 <div className="grey-text">
-                                    <MDBInput label="Album"
+                                    <MDBInput
+                                        group
+                                        label="Album"
                                         onChange={
                                             (event) => {
                                                 this.props.changeSearchQuery(
@@ -61,16 +69,19 @@ class SearchOptions extends Component {
                                                 );
                                             }
                                         }
-                                        group/>
-                                    <Select onChange={
-                                        (option) => {
-                                            this.props.changeSearchQuery(
-                                                GENRE_QUERY,
-                                                option.value,
-                                            );
+                                    />
+                                    <Select
+                                        className='mt-2'
+                                        onChange={
+                                            (option) => {
+                                                this.props.changeSearchQuery(
+                                                    GENRE_QUERY,
+                                                    option.value,
+                                                );
+                                            }
                                         }
-                                    }
-                                    options={genreOptions} />
+                                        options={genreOptions}
+                                    />
                                 </div>
                             </MDBCol>
                         </MDBRow>

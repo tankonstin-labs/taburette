@@ -1,18 +1,19 @@
 import React from 'react';
 import {createRoot} from 'react-dom/client';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
-
 import {Provider} from 'react-redux';
 // TODO: get rid of deprecated functions usage
 import {configureStore, getDefaultMiddleware} from '@reduxjs/toolkit';
-import songReducer from './redux/songs';
-import searchReducer from './redux/search';
-
 // TODO: restore notifications functionality
 // import ReactNotification from 'react-notifications-component';
 import 'react-notifications-component/dist/theme.css';
+import 'mdb-react-ui-kit/dist/css/mdb.min.css';
+import '@fortawesome/fontawesome-free/css/all.min.css';
+
+import './index.css';
+import App from './App';
+import * as serviceWorker from './serviceWorker';
+import songReducer from './redux/songs';
+import searchReducer from './redux/search';
 
 const config = {
     apiConfig: {

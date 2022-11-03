@@ -12,7 +12,8 @@ export class JokerFooter extends Component {
             // Irrational humour appearances
             'Шёл медведь по лесу, видит — машина горит. Сел в неё и сгорел.',
             'Надел мужик шляпу, а она ему как раз.',
-            '\"Вы кто по знаку зодиака?\" \"Я рыба.\" \"А я — пиво!\"',
+            'Нажимаю \"Мой Компьютер\", а он не моет.',
+            'Колобок повесился.',
             'Плохие шутки кончились, а хороших не будет.',
         ];
 
@@ -35,8 +36,8 @@ export class JokerFooter extends Component {
 
     render() {
         return (
-            <MDBFooter color="elegant-color"
-                className="font-small pt-4 mt-4"
+            <MDBFooter
+                className="font-small pt-1 bg-dark bg-gradient text-light"
                 onClick={this.handleFooterClick}
                 style={{
                     WebkitTouchCallout: 'none',
@@ -47,7 +48,7 @@ export class JokerFooter extends Component {
                     userSelect: 'none',
                 }}>
                 <div className="footer-copyright text-center py-3">
-                    <MDBContainer fluid >
+                    <MDBContainer fluid>
                         {this.state.footerText}
                     </MDBContainer>
                 </div>
