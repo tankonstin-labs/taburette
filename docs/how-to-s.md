@@ -70,9 +70,9 @@ one by one
 
 ## How to run the Vanguarde application
 
-Since the vanguarde app is using the npm package manager, you must install it first. This
+Since the vanguarde app is using the `npm` package manager, you must install it first. This
 task is straightforward: just install Node.js from [official site](https://nodejs.org/en/)
-and npm comes with it. [More info](https://www.npmjs.com/get-npm).
+and `npm` comes with it. [More info](https://www.npmjs.com/get-npm).
 
 Next, you shall install all project dependencies. Go to the app directory and
 
@@ -80,12 +80,16 @@ Next, you shall install all project dependencies. Go to the app directory and
 npm install
 ```
 
-Now, you must only endure long await of downloading and unpacking.
-**Note**. This command will create a special directory `node_modules` inside the app
-directory and will be **~200 Mb** size. Yes, this is normal.
+Run the app:
 
-To run the app you must simply call
+```shell
+npm run start  # Use either full form
+npm start      # or shortened one
+```
 
-`npm run start` or `npm start`
+This will run node server and you can look at the application at `http://localhost:3000/`.
 
-This will run node server and you can look at the project at `http://localhost:5000/`.
+### Known issues
+
+There may be several compilation errors complaining about ES module imports. Just rerun the
+application, and the failures must gone.
