@@ -12,7 +12,7 @@ export class Header extends Component {
                     <MDBNavbarBrand href='#!'>
                         <strong className="white-text">Taburette</strong>
                     </MDBNavbarBrand>
-                    {/* TODO: enable after class -> function components rearch */}
+                    {/* TODO: Enable toggler after class -> function components rearch */}
                     {/* <MDBNavbarToggler
                         type='button'
                         aria-expanded='false'
@@ -34,7 +34,7 @@ export class Header extends Component {
                             </MDBNavbarItem>
                         </MDBNavbarNav>
                         <MDBNavbarNav right fullWidth={false}>
-                            {/* TODO: elaborate a way to combine icon and "sign in" in a one item w/o line separation */}
+                            {/* TODO: Elaborate a way to combine icon and "sign in" in a one item w/o line separation */}
                             <MDBNavbarItem>
                                 <MDBNavbarLink disabled aria-disabled='true' href="#!">
                                     <MDBIcon icon='user' />

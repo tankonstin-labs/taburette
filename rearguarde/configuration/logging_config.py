@@ -16,7 +16,7 @@ CONFIG = {
     },
     'root': {
         'handlers': ['standard'],
-        'level': 'DEBUG',  # TODO change to INFO in prod
+        'level': 'DEBUG',  # TODO: Prod-prep: change to logging level to INFO
         'propagate': True,
     },
 }

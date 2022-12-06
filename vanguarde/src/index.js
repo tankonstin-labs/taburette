@@ -1,9 +1,9 @@
 import React from 'react';
 import {createRoot} from 'react-dom/client';
 import {Provider} from 'react-redux';
-// TODO: get rid of deprecated functions usage
+// TODO: Get rid of deprecated functions usage
 import {configureStore, getDefaultMiddleware} from '@reduxjs/toolkit';
-// TODO: restore notifications functionality
+// TODO: Restore notifications functionality
 // import ReactNotification from 'react-notifications-component';
 import 'react-notifications-component/dist/theme.css';
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
@@ -32,13 +32,13 @@ const store = configureStore({
             extraArgument: config,
         },
     }),
-    devTools: true, // TODO: disable in production
+    devTools: true, // TODO: Prod-prep: disable devtools in production
 });
 
 const root = createRoot(document.getElementById('root'));
 root.render(
     <Provider store={store}>
-        {/* TODO: restore notifications functionality */}
+        {/* TODO: Restore notifications functionality */}
         {/* <ReactNotification /> */}
         <App />
     </Provider>,
