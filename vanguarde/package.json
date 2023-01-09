@@ -65,7 +65,8 @@
     "eslint": "^8.3.0",
     "eslint-config-google": "^0.14.0",
     "eslint-config-react-app": "7.0.1",
-    "eslint-plugin-react": "^7.31.7"
+    "eslint-plugin-react": "^7.31.7",
+    "start-server-and-test": "^1.15.2"
   },
   "engines": {
     "node": ">= 14.0.0 < 15.0.0"
@@ -73,8 +74,8 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js",
-    "test:cypress": "npx cypress run"
+    "test:cypress": "cypress run -s **/mainPage.cy.js",
+    "test": "node scripts/test.js"
   },
   "eslintConfig": {
     "extends": "react-app"
