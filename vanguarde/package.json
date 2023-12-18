@@ -62,6 +62,7 @@
   "devDependencies": {
     "babel-eslint": "^10.1.0",
     "cypress": "^12.2.0",
+    "cypress-fail-on-console-error": "^4.0.2",
     "eslint": "^8.3.0",
     "eslint-config-google": "^0.14.0",
     "eslint-config-react-app": "7.0.1",

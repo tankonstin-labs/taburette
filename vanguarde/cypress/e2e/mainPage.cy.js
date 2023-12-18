@@ -1,12 +1,13 @@
 /// <reference types="cypress" />
 
 context('Main Page', () => {
-    beforeEach(() => {
-      cy.visit('/')
-    })
+    // beforeEach(() => {
+    //   cy.visit('/')
+    // })
 
     it('performs a trivial check', () => {
-        expect(true).to.equal(true);
+        cy.visit('/')
+        // expect(true).to.equal(true);
     });
 
     // it('gets no console errors', () => {
