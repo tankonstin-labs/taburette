@@ -12,5 +12,17 @@ services:
       - crack-storage:/var/lib/postgresql/data
     ports:
       - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U habrpguser -d habrdb"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    restart: on-failure:2
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 2G
 volumes:
   crack-storage:
