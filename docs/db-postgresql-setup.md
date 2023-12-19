@@ -11,9 +11,23 @@ For the time being, a dedicated DB-user will be established for connection to th
 Before running python code for the database creation, one needs to create user via `psql` or
 `pgAdmin4` utilities. Here, the command line approach will be enlightened (i.e. through `psql`).
 
-## Linux notes
+## Option 1: containerized
 
-### User initiation
+It is straighforward to spin up a database container along with pgAdmin dashboard in an isolated environment.
+Simply execute
+
+```shell
+docker-compose --project-name="taburette-db-layer" up -d 
+```
+
+while CWD in the same directory as `docker-compose.yaml`. You'll have two services with necessary
+ports exposed to the host.
+
+## Option 2: system-wide
+
+### Linux notes
+
+#### User initiation
 
 In Unix, PostgreSQL uses role-based authentication, which is enabled by default so instead of
 logging in as a superuser (`postgres` initially), administrator should create another role with
@@ -46,7 +60,7 @@ It will create a user with an ability to create any databases inside the DBMS en
 it can, use the `\du` command to display a table with roles configured in PostgreSQL and their
 attributes.
 
-### Authentication settings
+#### Authentication settings
 
 For making possible to login as a newly created `crack_user`, you need to edit the
 `/etc/postgresql/10/main/pg_hba.conf` to specify the authentication method for the user. Add the
@@ -62,7 +76,7 @@ For the changes to be applied one should consider restarting the `postgresql` da
 `sudo service postgresql restart`. Finally, by the `psql -U crack_user -W -d medium` a newly created
 user can connect to the intermediate database.
 
-### Database origination
+#### Database origination
 
 Now it is time to 'crack' database to be created by the `crack_user`. Execute
 
@@ -73,7 +87,7 @@ CREATE DATABASE "crack" ENCODING 'UTF8';
 You can assure database is created by entering `\l` command. Since this moment, you can access
 the database from python's code.
 
-## Windows notes
+### Windows notes
 
 You can face an issue with 866 and 1251 encoding pages discrepancies in the Windows `cmd` and `psql`
 if the default OS locale is not US English. To avoid such problem, before running the `psql`
