@@ -1,7 +1,9 @@
 version: "3.8"
 services:
+
   postgres:
     image: postgres:14.10-alpine3.19
+    container_name: crack-db
     command:
       - "postgres"
       - "-c"
@@ -32,5 +34,33 @@ services:
         limits:
           cpus: '1'
           memory: 2G
+    networks:
+      - main
+
+  pgadmin:
+    image: dpage/pgadmin4:8.1
+    container_name: crack-admin-dash
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "admin@example.com"
+      PGADMIN_DEFAULT_PASSWORD: "crack_admin_pass"
+      PGADMIN_CONFIG_SERVER_MODE: "False"
+    volumes:
+      - local_pgadmin_storage:/var/lib/pgadmin
+    ports:
+      - "5433:80"
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 1G
+    networks:
+      - main
+
 volumes:
   local_crack_storage:
+  local_pgadmin_storage:
+
+networks:
+  main:
+    driver: bridge
