@@ -22,7 +22,7 @@ class SongList extends Component {
         searchBarIsVisible: PropTypes.bool.isRequired,
         songList: PropTypes.array,
         sorting: PropTypes.string,
-    }
+    };
 
     componentDidMount() {
         this.props.getSongList();
@@ -39,6 +39,7 @@ class SongList extends Component {
                                 placeholder="Search for your tabs..."
                                 type='text'
                                 onChange={this.props.handleOmnibarChange}
+                                data-cy='search-bar'
                             />
                             <MDBBtn
                                 color="dark"
@@ -73,7 +74,7 @@ class SongList extends Component {
                         </MDBBtn>
                     </MDBCol>
                 </MDBRow>
-                <MDBRow className='mt-3'>
+                <MDBRow className='mt-3' data-cy='song-list'>
                     {
                         this.props.songList.map((value, index) => {
                             const trackName = value.name;
