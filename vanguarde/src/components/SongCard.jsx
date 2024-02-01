@@ -11,7 +11,7 @@ export class SongCard extends Component {
     static propTypes = {
         artist: PropTypes.string.isRequired,
         trackName: PropTypes.string.isRequired,
-    }
+    };
 
     render() {
         return (

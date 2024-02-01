@@ -16,7 +16,7 @@ class SearchOptions extends Component {
     static propTypes = {
         // methods
         changeSearchQuery: PropTypes.func.isRequired,
-    }
+    };
 
     render() {
         return (
