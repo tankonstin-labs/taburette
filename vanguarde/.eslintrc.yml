@@ -21,3 +21,5 @@ rules:
     - single
   semi:
     - error
+  no-unused-vars:
+    - off
