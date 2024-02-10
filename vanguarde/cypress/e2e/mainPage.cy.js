@@ -19,8 +19,8 @@ context('Main Page', () => {
     });
 
     it('Performs no-result search', () => {
-        cy.getBySel('search-bar').type('STUB');
-        cy.wait('@getSongsArtistsByName');
+        cy.getBySel('search-bar').type('it won\'t have any effect anyway');
+        cy.wait('@getSongsArtists');
         cy.getBySel('song-list').should('be.empty');
     });
 });
