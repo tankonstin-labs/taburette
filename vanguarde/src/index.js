@@ -1,10 +1,9 @@
 import React from 'react';
-import {createRoot} from 'react-dom/client';
-import {Provider} from 'react-redux';
+import { createRoot } from 'react-dom/client';
+import { Provider } from 'react-redux';
 // TODO: Get rid of deprecated functions usage
-import {configureStore, getDefaultMiddleware} from '@reduxjs/toolkit';
-// TODO: Restore notifications functionality
-// import ReactNotification from 'react-notifications-component';
+import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
+import { ReactNotifications } from 'react-notifications-component';
 import 'react-notifications-component/dist/theme.css';
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
@@ -38,8 +37,7 @@ const store = configureStore({
 const root = createRoot(document.getElementById('root'));
 root.render(
     <Provider store={store}>
-        {/* TODO: Restore notifications functionality */}
-        {/* <ReactNotification /> */}
+        <ReactNotifications />
         <App />
     </Provider>,
 );

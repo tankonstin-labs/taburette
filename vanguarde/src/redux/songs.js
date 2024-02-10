@@ -1,5 +1,5 @@
-import {createSlice} from '@reduxjs/toolkit';
-import {makeSongQuery} from './common';
+import { createSlice } from '@reduxjs/toolkit';
+import { makeSongQuery } from './common';
 
 const initialState = {
     songList: [],
@@ -29,11 +29,11 @@ const songSlice = createSlice({
 });
 
 export function getSongList(searchQuery = {}) {
-    return (dispatch, getState, {apiConfig}) => {
-        makeSongQuery(dispatch, getState, {apiConfig}, searchQuery);
+    return (dispatch, getState, { apiConfig }) => {
+        makeSongQuery(dispatch, getState, { apiConfig }, searchQuery);
     };
 }
 
-const {actions, reducer} = songSlice;
-export const {fetchBegin, fetchSongListSuccess, fetchError, toggleSorting} = actions;
+const { actions, reducer } = songSlice;
+export const { fetchBegin, fetchSongListSuccess, fetchError, toggleSorting } = actions;
 export default reducer;

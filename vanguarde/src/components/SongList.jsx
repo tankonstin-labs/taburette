@@ -1,15 +1,15 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import {SongCard} from './SongCard.jsx';
+import { SongCard } from './SongCard.jsx';
 import {
     MDBBtn, MDBCol, MDBContainer, MDBIcon, MDBInputGroup, MDBRow,
 } from 'mdb-react-ui-kit';
 
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 
 import SearchOptions from './SearchOptions';
-import {toggleSearchBar, handleOmnibarChange, handleSortToggle} from '../redux/search';
-import {getSongList} from '../redux/songs';
+import { toggleSearchBar, handleOmnibarChange, handleSortToggle } from '../redux/search';
+import { getSongList } from '../redux/songs';
 
 class SongList extends Component {
     static propTypes = {
@@ -90,7 +90,7 @@ class SongList extends Component {
 }
 
 function toggle(event) {
-    return (dispatch, getState, {apiConfig}) => {
+    return (dispatch, getState, { apiConfig }) => {
         dispatch(toggleSearchBar());
     };
 }
@@ -102,5 +102,5 @@ const mapStateToProps = (state) => ({
 });
 
 export default connect(mapStateToProps,
-    {getSongList, toggleSearchBar, handleOmnibarChange, handleSortToggle, toggle},
+    { getSongList, toggleSearchBar, handleOmnibarChange, handleSortToggle, toggle },
 )(SongList);

@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {MDBContainer, MDBFooter} from 'mdb-react-ui-kit';
+import React, { Component } from 'react';
+import { MDBContainer, MDBFooter } from 'mdb-react-ui-kit';
 
 export class JokerFooter extends Component {
     constructor(props) {
@@ -38,7 +38,7 @@ export class JokerFooter extends Component {
         return (
             <MDBFooter
                 className="font-small pt-1 bg-dark bg-gradient text-light"
-                onClick={this.handleFooterClick}
+                onClick={ this.handleFooterClick }
                 style={{
                     WebkitTouchCallout: 'none',
                     WebkitUserSelect: 'none',
@@ -49,7 +49,7 @@ export class JokerFooter extends Component {
                 }}>
                 <div className="footer-copyright text-center py-3">
                     <MDBContainer fluid>
-                        {this.state.footerText}
+                        { this.state.footerText }
                     </MDBContainer>
                 </div>
             </MDBFooter>
