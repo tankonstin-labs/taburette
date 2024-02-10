@@ -1,7 +1,7 @@
 import {
     MDBCard, MDBRow, MDBCol,
 } from 'mdb-react-ui-kit';
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import placeholder from '../assets/150.png';

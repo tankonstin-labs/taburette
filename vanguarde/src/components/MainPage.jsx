@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {MDBCol, MDBContainer, MDBRow} from 'mdb-react-ui-kit';
+import React, { Component } from 'react';
+import { MDBCol, MDBContainer, MDBRow } from 'mdb-react-ui-kit';
 
 import SongList from './SongList.jsx';
 

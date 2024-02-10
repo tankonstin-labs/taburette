@@ -1,8 +1,7 @@
-import {createSlice} from '@reduxjs/toolkit';
-
+import { createSlice } from '@reduxjs/toolkit';
 import AwesomeDebouncePromise from 'awesome-debounce-promise';
 
-import {makeSongQuery} from './common';
+import { makeSongQuery } from './common';
 
 const initialState = {
     searchBarIsVisible: false,
@@ -19,7 +18,7 @@ const searchSlice = createSlice({
     initialState,
     reducers: {
         toggleSearchBar(state, action) {
-            console.log({state, action});
+            // console.log({ state, action });
             state.searchBarIsVisible = !state.searchBarIsVisible;
         },
         changeOmnibarQuery(state, action) {
@@ -55,7 +54,7 @@ const makeSongQueryDebounced = AwesomeDebouncePromise(
 );
 
 export const changeSearchQuery = (eventType, value) => {
-    return (dispatch, getState, {apiConfig}) => {
+    return (dispatch, getState, { apiConfig }) => {
         switch (eventType) {
         case ARTIST_QUERY:
             dispatch(actions.changeArtistQuery(value));
@@ -70,24 +69,25 @@ export const changeSearchQuery = (eventType, value) => {
             dispatch(actions.changeGenreQuery(value));
             break;
         default:
-            console.error('Wrong eventType ', {eventType});
-        };
-        makeSongQueryDebounced(dispatch, getState, {apiConfig});
+            console.error('Wrong eventType ', { eventType });
+        }
+
+        makeSongQueryDebounced(dispatch, getState, { apiConfig });
     };
 };
 
 export function handleOmnibarChange(event) {
     const value = event.target.value;
-    return (dispatch, getState, {apiConfig}) => {
+    return (dispatch, getState, { apiConfig }) => {
         dispatch(actions.changeSongQuery(value));
-        makeSongQueryDebounced(dispatch, getState, {apiConfig});
+        makeSongQueryDebounced(dispatch, getState, { apiConfig });
     };
 }
 
 export function handleSortToggle(event) {
-    return (dispatch, getState, {apiConfig}) => {
+    return (dispatch, getState, { apiConfig }) => {
         dispatch(toggleSorting());
-        makeSongQuery(dispatch, getState, {apiConfig});
+        makeSongQuery(dispatch, getState, { apiConfig });
     };
 }
 
@@ -97,6 +97,6 @@ export function handleToggleSearchBar(event) {
     };
 }
 
-export const {actions, reducer} = searchSlice;
-export const {toggleSearchBar, changeOmnibarhQuery, toggleSorting} = actions;
+export const { actions, reducer } = searchSlice;
+export const { toggleSearchBar, changeOmnibarhQuery, toggleSorting } = actions;
 export default reducer;
