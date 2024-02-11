@@ -4,8 +4,8 @@ import {
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import placeholder from '../assets/150.png';
-import '../index.css';
+import placeholder from '../../assets/150.png';
+import '../../index.css';
 
 export class SongCard extends Component {
     static propTypes = {

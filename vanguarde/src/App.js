@@ -1,10 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
-import { Header } from './components/Header';
-import { MainPage } from './components/MainPage';
-import { SongDetails } from './components/SongDetails';
-import { JokerFooter } from './components/JokerFooter';
+import { MainPage } from './components/main/MainPage';
+import { SongDetails } from './components/track/SongDetails';
+import { Header } from './components/shared/Header';
+import { JokerFooter } from './components/shared/JokerFooter';
 
 function App() {
     return (
