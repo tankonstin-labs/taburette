@@ -77,10 +77,10 @@ class SongList extends Component {
                 <MDBRow className='mt-3' data-cy='song-list'>
                     {
                         this.props.songList.map((value, index) => {
-                            const trackName = value.name;
-                            const featuredArtists = value.release.artists.map(
-                                (artist) => artist.name).join(';');
-                            return <SongCard key={index} artist={featuredArtists} trackName={trackName} />;
+                            const featuredArtists = value.release.artists
+                                .map((artist) => artist.name)
+                                .join(';');
+                            return <SongCard key={index} artist={featuredArtists} trackName={value.name} trackId={value.id} />;
                         })
                     }
                 </MDBRow>

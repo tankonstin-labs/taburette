@@ -10,6 +10,7 @@ import '../index.css';
 export class SongCard extends Component {
     static propTypes = {
         artist: PropTypes.string.isRequired,
+        trackId: PropTypes.number.isRequired,
         trackName: PropTypes.string.isRequired,
     };
 
@@ -25,7 +26,9 @@ export class SongCard extends Component {
                             <div className="col-md-6">
                                 <div className="card-body">
                                     <h4 className="card-title">
-                                        {this.props.trackName}
+                                        <a href={`/s/${this.props.trackId}`}>
+                                            {this.props.trackName}
+                                        </a>
                                     </h4>
                                     <h6 className="card-subtitle">
                                         by {this.props.artist}

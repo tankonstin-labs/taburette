@@ -9,7 +9,7 @@ export class Header extends Component {
         return (
             <MDBNavbar bgColor='dark' color="elegant-color" dark expand='xl'>
                 <MDBContainer>
-                    <MDBNavbarBrand href='#!'>
+                    <MDBNavbarBrand href='/'>
                         <strong className="white-text">Taburette</strong>
                     </MDBNavbarBrand>
                     {/* TODO: Enable toggler after class -> function components rearch */}
@@ -24,7 +24,7 @@ export class Header extends Component {
                     <MDBCollapse navbar>
                         <MDBNavbarNav>
                             <MDBNavbarItem>
-                                <MDBNavbarLink active aria-current='home' href="#!">Home</MDBNavbarLink>
+                                <MDBNavbarLink active aria-current='home' href="/">Home</MDBNavbarLink>
                             </MDBNavbarItem>
                             <MDBNavbarItem>
                                 <MDBNavbarLink disabled aria-disabled='true' href="#!">About</MDBNavbarLink>
