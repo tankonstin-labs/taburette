@@ -27,8 +27,8 @@ export function handleError(errorObj) {
             onScreen: true,
         },
         type: 'danger',
-        insert: 'top',
-        container: 'top-right',
+        insert: 'bottom',
+        container: 'bottom-right',
         animationIn: ['animated', 'fadeIn'],
         animationOut: ['animated', 'fadeOut'],
     });

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { useParams } from 'react-router-dom';
 import { MDBCol, MDBContainer, MDBRow } from 'mdb-react-ui-kit';
 
@@ -11,7 +11,7 @@ export function SongDetails() {
             <MDBRow>
                 <MDBCol md="2" />
                 <MDBCol md="8">
-                    Here lieth song details for entity { songId }.
+                    Here lieth song details for release {songId}.
                 </MDBCol>
                 <MDBCol md="2" />
             </MDBRow>
