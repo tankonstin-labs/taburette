@@ -7,7 +7,7 @@ const initialState = {
     error: null,
 };
 
-const songSlice = createSlice({
+const songsSlice = createSlice({
     name: 'songs',
     initialState,
     reducers: {
@@ -19,7 +19,6 @@ const songSlice = createSlice({
             const songList = action.payload;
             state.loading = false;
             state.songList = songList;
-            // console.log('new state: ', current(state)); // from @reduxjs/toolkit
         },
         fetchError: (state, action) => {
             state.loading = false;
@@ -34,6 +33,7 @@ export function getSongList(searchQuery = {}) {
     };
 }
 
-const { actions, reducer } = songSlice;
+const { actions, reducer } = songsSlice;
+// TODO: review if `toggleSorting` is a copypaste vestige
 export const { fetchBegin, fetchSongListSuccess, fetchError, toggleSorting } = actions;
 export default reducer;

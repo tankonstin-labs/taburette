@@ -8,8 +8,8 @@ import {
 import { connect } from 'react-redux';
 
 import SearchOptions from './SearchOptions';
-import { toggleSearchBar, handleOmnibarChange, handleSortToggle } from '../redux/search';
-import { getSongList } from '../redux/songs';
+import { toggleSearchBar, handleOmnibarChange, handleSortToggle } from '../../redux/search.js';
+import { getSongList } from '../../redux/songs.js';
 
 class SongList extends Component {
     static propTypes = {
@@ -77,10 +77,10 @@ class SongList extends Component {
                 <MDBRow className='mt-3' data-cy='song-list'>
                     {
                         this.props.songList.map((value, index) => {
-                            const trackName = value.name;
-                            const featuredArtists = value.release.artists.map(
-                                (artist) => artist.name).join(';');
-                            return <SongCard key={index} artist={featuredArtists} trackName={trackName} />;
+                            const featuredArtists = value.release.artists
+                                .map((artist) => artist.name)
+                                .join(';');
+                            return <SongCard key={index} artist={featuredArtists} trackName={value.name} trackId={value.id} />;
                         })
                     }
                 </MDBRow>

@@ -3,14 +3,14 @@ import { MDBCol, MDBContainer, MDBRow } from 'mdb-react-ui-kit';
 
 import SongList from './SongList.jsx';
 
-class MainPage extends Component {
+export class MainPage extends Component {
     render() {
         return (
             <MDBContainer className='mt-5' fluid>
                 <MDBRow>
                     <MDBCol md="2" />
                     <MDBCol md="8">
-                        <SongList/>
+                        <SongList />
                     </MDBCol>
                     <MDBCol md="2" />
                 </MDBRow>
@@ -18,5 +18,3 @@ class MainPage extends Component {
         );
     }
 }
-
-export default MainPage;

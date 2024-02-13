@@ -24,6 +24,7 @@ const rootReducer = {
     searchReducer: searchReducer,
     songReducer: songReducer,
 };
+
 const store = configureStore({
     reducer: rootReducer,
     middleware: getDefaultMiddleware({
