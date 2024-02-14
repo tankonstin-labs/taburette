@@ -9,7 +9,7 @@ export function Header() {
     const [showNav, setShowNav] = useState(true);
 
     return (
-        <MDBNavbar bgColor='dark' color="elegant-color" dark expand='xl' scrolling>
+        <MDBNavbar bgColor='dark' color="elegant-color" dark expand='xl'>
             <MDBContainer>
                 <MDBNavbarBrand href='/'>
                     <strong className="white-text">Taburette</strong>
@@ -35,15 +35,9 @@ export function Header() {
                         </MDBNavbarItem>
                     </MDBNavbarNav>
                     <MDBNavbarNav right fullWidth={false}>
-                        {/* TODO: Elaborate a way to combine icon and "sign in" in a one item w/o line separation */}
                         <MDBNavbarItem>
                             <MDBNavbarLink disabled aria-disabled='true' href="#!">
-                                <MDBIcon icon='user' />
-                            </MDBNavbarLink>
-                        </MDBNavbarItem>
-                        <MDBNavbarItem>
-                            <MDBNavbarLink disabled aria-disabled='true' href="#!">
-                                <span className='d-inline-flex'>Sign&nbsp;In</span>
+                                <span>Sign&nbsp;In</span>
                             </MDBNavbarLink>
                         </MDBNavbarItem>
                     </MDBNavbarNav>
