@@ -9,21 +9,20 @@ export function Header() {
     const [showNav, setShowNav] = useState(true);
 
     return (
-        <MDBNavbar bgColor='dark' color="elegant-color" dark expand='xl'>
+        <MDBNavbar bgColor='dark' color="elegant-color" dark expand='xl' scrolling>
             <MDBContainer>
                 <MDBNavbarBrand href='/'>
                     <strong className="white-text">Taburette</strong>
                 </MDBNavbarBrand>
-                {/* TODO: Enable toggler after class -> function components rearch */}
                 <MDBNavbarToggler
                     type='button'
-                    aria-expanded='true'
+                    aria-expanded='false'
                     aria-label='Toggle navigation'
-                    onClick={() => setShowNav(!showNav)}
+                    onClick={ () => setShowNav(!showNav) } 
                 >
                     <MDBIcon icon='bars' fas />
                 </MDBNavbarToggler>
-                <MDBCollapse navbar>
+                <MDBCollapse open={showNav} navbar>
                     <MDBNavbarNav>
                         <MDBNavbarItem>
                             <MDBNavbarLink active aria-current='home' href="/">Home</MDBNavbarLink>
