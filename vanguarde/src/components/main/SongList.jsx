@@ -8,14 +8,13 @@ import {
 import { connect } from 'react-redux';
 
 import SearchOptions from './SearchOptions';
-import { toggleSearchBar, handleOmnibarChange, handleSortToggle } from '../../redux/search.js';
+import { handleOmnibarChange, handleSortToggle } from '../../redux/search.js';
 import { getSongList } from '../../redux/songs.js';
 
 class SongList extends Component {
     static propTypes = {
         // methods
         getSongList: PropTypes.func.isRequired,
-        toggle: PropTypes.func.isRequired,
         handleOmnibarChange: PropTypes.func.isRequired,
         handleSortToggle: PropTypes.func.isRequired,
         // fields
@@ -43,7 +42,7 @@ class SongList extends Component {
                             />
                             <MDBBtn
                                 color="dark"
-                                onClick={this.props.toggle}
+                                onClick={alert}
                             >
                                 <MDBIcon icon="gear" />
                             </MDBBtn>
@@ -89,12 +88,6 @@ class SongList extends Component {
     }
 }
 
-function toggle(event) {
-    return (dispatch, getState, { apiConfig }) => {
-        dispatch(toggleSearchBar());
-    };
-}
-
 const mapStateToProps = (state) => ({
     songList: state.songReducer.songList,
     searchBarIsVisible: state.searchReducer.searchBarIsVisible,
@@ -102,5 +95,5 @@ const mapStateToProps = (state) => ({
 });
 
 export default connect(mapStateToProps,
-    { getSongList, toggleSearchBar, handleOmnibarChange, handleSortToggle, toggle },
+    { getSongList, handleOmnibarChange, handleSortToggle },
 )(SongList);
