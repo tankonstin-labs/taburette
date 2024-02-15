@@ -25,7 +25,6 @@ function SearchOptions(props) {
                             <form>
                                 <div className="grey-text">
                                     <MDBInput
-                                        group
                                         label="Artist"
                                         onChange={
                                             (event) => {
@@ -37,7 +36,6 @@ function SearchOptions(props) {
                                         }
                                     />
                                     <MDBInput
-                                        group
                                         label="Track"
                                         className='mt-2'
                                         onChange={
@@ -55,7 +53,6 @@ function SearchOptions(props) {
                         <MDBCol md="6">
                             <div className="grey-text">
                                 <MDBInput
-                                    group
                                     label="Album"
                                     onChange={
                                         (event) => {
