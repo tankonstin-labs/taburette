@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { SongCard } from './SongCard.jsx';
 import {
@@ -11,81 +11,69 @@ import SearchOptions from './SearchOptions';
 import { handleOmnibarChange, handleSortToggle } from '../../redux/search.js';
 import { getSongList } from '../../redux/songs.js';
 
-class SongList extends Component {
-    static propTypes = {
-        // methods
-        getSongList: PropTypes.func.isRequired,
-        handleOmnibarChange: PropTypes.func.isRequired,
-        handleSortToggle: PropTypes.func.isRequired,
-        // fields
-        searchBarIsVisible: PropTypes.bool.isRequired,
-        songList: PropTypes.array,
-        sorting: PropTypes.string,
-    };
+function SongList(props) {
 
-    componentDidMount() {
-        this.props.getSongList();
-    }
+    // componentDidMount() {
+    //     this.props.getSongList();
+    // }
 
-    render() {
-        return (
-            <MDBContainer>
-                <MDBRow className="d-flex justify-content-center">
-                    <MDBCol md="10">
-                        <MDBInputGroup className='mb-3'>
-                            <input
-                                className='form-control'
-                                placeholder="Search for your tabs..."
-                                type='text'
-                                onChange={this.props.handleOmnibarChange}
-                                data-cy='search-bar'
-                            />
-                            <MDBBtn
-                                color="dark"
-                                onClick={alert}
-                            >
-                                <MDBIcon icon="gear" />
-                            </MDBBtn>
-                        </MDBInputGroup>
-                    </MDBCol>
-                </MDBRow>
-                <MDBRow className="d-flex justify-content-end">
-                    <MDBCol md="10">
-                        {
-                            this.props.searchBarIsVisible ?
-                                <SearchOptions /> :
-                                null
-                        }
-                    </MDBCol>
-                </MDBRow>
-                <MDBRow className="d-flex justify-content-end">
-                    <MDBCol md="1">
+    return (
+        <MDBContainer>
+            <MDBRow className="d-flex justify-content-center">
+                <MDBCol md="10">
+                    <MDBInputGroup className='mb-3'>
+                        <input
+                            className='form-control'
+                            placeholder="Search for your tabs..."
+                            type='text'
+                            onChange={props.handleOmnibarChange}
+                            data-cy='search-bar'
+                        />
                         <MDBBtn
-                            color="elegant"
-                            onClick={this.props.handleSortToggle}
+                            color="dark"
+                            onClick={alert}
                         >
-                            <MDBIcon
-                                icon={
-                                    this.props.sorting === 'asc' ? 'sort-amount-down' : 'sort-amount-up'
-                                }
-                                size="2x"
-                            />
+                            <MDBIcon icon="gear" />
                         </MDBBtn>
-                    </MDBCol>
-                </MDBRow>
-                <MDBRow className='mt-3' data-cy='song-list'>
+                    </MDBInputGroup>
+                </MDBCol>
+            </MDBRow>
+            <MDBRow className="d-flex justify-content-end">
+                <MDBCol md="10">
                     {
-                        this.props.songList.map((value, index) => {
-                            const featuredArtists = value.release.artists
-                                .map((artist) => artist.name)
-                                .join(';');
-                            return <SongCard key={index} artist={featuredArtists} trackName={value.name} trackId={value.id} />;
-                        })
+                        props.searchBarIsVisible ?
+                            <SearchOptions /> :
+                            null
                     }
-                </MDBRow>
-            </MDBContainer>
-        );
-    }
+                </MDBCol>
+            </MDBRow>
+            <MDBRow className="d-flex justify-content-end">
+                <MDBCol md="1">
+                    <MDBBtn
+                        color="elegant"
+                        onClick={props.handleSortToggle}
+                    >
+                        <MDBIcon
+                            icon={
+                                props.sorting === 'asc' ? 'sort-amount-down' : 'sort-amount-up'
+                            }
+                            size="2x"
+                        />
+                    </MDBBtn>
+                </MDBCol>
+            </MDBRow>
+            <MDBRow className='mt-3' data-cy='song-list'>
+                {
+                    props.songList.map((value, index) => {
+                        const featuredArtists = value.release.artists
+                            .map((artist) => artist.name)
+                            .join(';');
+                        return <SongCard key={index} artist={featuredArtists} trackName={value.name} trackId={value.id} />;
+                    })
+                }
+            </MDBRow>
+        </MDBContainer>
+    );
 }
 
 const mapStateToProps = (state) => ({
@@ -93,6 +81,17 @@ const mapStateToProps = (state) => ({
     searchBarIsVisible: state.searchReducer.searchBarIsVisible,
     sorting: state.searchReducer.sorting,
 });
+
+SongList.propTypes = {
+    // methods
+    getSongList: PropTypes.func.isRequired,
+    handleOmnibarChange: PropTypes.func.isRequired,
+    handleSortToggle: PropTypes.func.isRequired,
+    // fields
+    searchBarIsVisible: PropTypes.bool.isRequired,
+    songList: PropTypes.array,
+    sorting: PropTypes.string,
+};
 
 export default connect(mapStateToProps,
     { getSongList, handleOmnibarChange, handleSortToggle },
