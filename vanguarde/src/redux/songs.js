@@ -33,7 +33,5 @@ export function getSongList(searchQuery = {}) {
     };
 }
 
-const { actions, reducer } = songsSlice;
-// TODO: review if `toggleSorting` is a copypaste vestige
-export const { fetchBegin, fetchSongListSuccess, fetchError, toggleSorting } = actions;
-export default reducer;
+export const { fetchBegin, fetchSongListSuccess, fetchError } = songsSlice.actions;
+export default songsSlice.reducer;
