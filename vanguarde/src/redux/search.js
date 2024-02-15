@@ -13,7 +13,7 @@ const initialState = {
 };
 
 const searchSlice = createSlice({
-    name: 'searchBar',
+    name: 'search',
     initialState,
     reducers: {
         changeOmnibarQuery(state, action) {

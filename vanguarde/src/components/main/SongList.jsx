@@ -1,4 +1,4 @@
-import React, { Component, useEffect } from 'react';
+import React, { Component, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { SongCard } from './SongCard.jsx';
 import {
@@ -17,6 +17,8 @@ function SongList(props) {
     //     this.props.getSongList();
     // }
 
+    const [showSearchOptions, setShowSearchOptions] = useState(false);
+
     return (
         <MDBContainer>
             <MDBRow className="d-flex justify-content-center">
@@ -31,7 +33,7 @@ function SongList(props) {
                         />
                         <MDBBtn
                             color="dark"
-                            onClick={alert}
+                            onClick={() => setShowSearchOptions(!showSearchOptions)}
                         >
                             <MDBIcon icon="gear" />
                         </MDBBtn>
@@ -41,9 +43,7 @@ function SongList(props) {
             <MDBRow className="d-flex justify-content-end">
                 <MDBCol md="10">
                     {
-                        props.searchBarIsVisible ?
-                            <SearchOptions /> :
-                            null
+                        showSearchOptions ? <SearchOptions /> : null
                     }
                 </MDBCol>
             </MDBRow>
@@ -78,7 +78,6 @@ function SongList(props) {
 
 const mapStateToProps = (state) => ({
     songList: state.songReducer.songList,
-    searchBarIsVisible: state.searchReducer.searchBarIsVisible,
     sorting: state.searchReducer.sorting,
 });
 
@@ -88,7 +87,6 @@ SongList.propTypes = {
     handleOmnibarChange: PropTypes.func.isRequired,
     handleSortToggle: PropTypes.func.isRequired,
     // fields
-    searchBarIsVisible: PropTypes.bool.isRequired,
     songList: PropTypes.array,
     sorting: PropTypes.string,
 };
