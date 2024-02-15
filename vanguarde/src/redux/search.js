@@ -86,5 +86,5 @@ export function handleSortToggle(event) {
     };
 }
 
-export const { changeOmnibarhQuery, toggleSorting } = searchSlice.actions;
+export const { changeOmnibarQuery, toggleSorting } = searchSlice.actions;
 export default searchSlice.reducer;

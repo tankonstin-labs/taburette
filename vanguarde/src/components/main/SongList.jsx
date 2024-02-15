@@ -1,21 +1,24 @@
-import React, { Component, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { SongCard } from './SongCard.jsx';
 import {
     MDBBtn, MDBCol, MDBContainer, MDBIcon, MDBInputGroup, MDBRow,
 } from 'mdb-react-ui-kit';
 
-import { connect } from 'react-redux';
+import { connect, useDispatch } from 'react-redux';
 
 import SearchOptions from './SearchOptions';
-import { handleOmnibarChange, handleSortToggle } from '../../redux/search.js';
+import { changeOmnibarQuery, handleOmnibarChange, handleSortToggle } from '../../redux/search.js';
 import { getSongList } from '../../redux/songs.js';
 
 function SongList(props) {
 
-    // componentDidMount() {
-    //     this.props.getSongList();
-    // }
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        const _ = props.getSongList();
+        dispatch(changeOmnibarQuery);
+    }, [dispatch]);
 
     const [showSearchOptions, setShowSearchOptions] = useState(false);
 
