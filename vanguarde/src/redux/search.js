@@ -4,7 +4,6 @@ import AwesomeDebouncePromise from 'awesome-debounce-promise';
 import { makeSongQuery } from './common';
 
 const initialState = {
-    searchBarIsVisible: false,
     omnibarQuery: null,
     artistQuery: null,
     releaseQuery: null,
@@ -14,13 +13,9 @@ const initialState = {
 };
 
 const searchSlice = createSlice({
-    name: 'searchBar',
+    name: 'search',
     initialState,
     reducers: {
-        toggleSearchBar(state, action) {
-            // console.log({ state, action });
-            state.searchBarIsVisible = !state.searchBarIsVisible;
-        },
         changeOmnibarQuery(state, action) {
             state.omnibarQuery = action.payload;
         },
@@ -57,16 +52,16 @@ export const changeSearchQuery = (eventType, value) => {
     return (dispatch, getState, { apiConfig }) => {
         switch (eventType) {
         case ARTIST_QUERY:
-            dispatch(actions.changeArtistQuery(value));
+            dispatch(searchSlice.actions.changeArtistQuery(value));
             break;
         case SONG_QUERY:
-            dispatch(actions.changeSongQuery(value));
+            dispatch(searchSlice.actions.changeSongQuery(value));
             break;
         case RELEASE_QUERY:
-            dispatch(actions.changeReleaseQuery(value));
+            dispatch(searchSlice.actions.changeReleaseQuery(value));
             break;
         case GENRE_QUERY:
-            dispatch(actions.changeGenreQuery(value));
+            dispatch(searchSlice.actions.changeGenreQuery(value));
             break;
         default:
             console.error('Wrong eventType ', { eventType });
@@ -79,7 +74,7 @@ export const changeSearchQuery = (eventType, value) => {
 export function handleOmnibarChange(event) {
     const value = event.target.value;
     return (dispatch, getState, { apiConfig }) => {
-        dispatch(actions.changeSongQuery(value));
+        dispatch(searchSlice.actions.changeSongQuery(value));
         makeSongQueryDebounced(dispatch, getState, { apiConfig });
     };
 }
@@ -91,12 +86,5 @@ export function handleSortToggle(event) {
     };
 }
 
-export function handleToggleSearchBar(event) {
-    return (dispatch) => {
-        dispatch(toggleSearchBar);
-    };
-}
-
-export const { actions, reducer } = searchSlice;
-export const { toggleSearchBar, changeOmnibarhQuery, toggleSorting } = actions;
-export default reducer;
+export const { changeOmnibarQuery, toggleSorting } = searchSlice.actions;
+export default searchSlice.reducer;
