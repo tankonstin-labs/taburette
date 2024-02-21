@@ -17,7 +17,7 @@ function SongList(props) {
 
     useEffect(() => {
         const _ = props.getSongList();
-        dispatch(changeOmnibarQuery);
+        dispatch(changeOmnibarQuery());
     }, [dispatch]);
 
     const [showSearchOptions, setShowSearchOptions] = useState(false);

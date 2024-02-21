@@ -1,0 +1,15 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Vanguarde (DEV)",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}\\vanguarde\\scripts\\start.js",
+            "cwd": "${workspaceFolder}\\vanguarde"
+        }
+    ]
+}
