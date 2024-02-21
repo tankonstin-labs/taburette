@@ -19,9 +19,11 @@ require('start-server-and-test').startAndTest({
   services: [
     {
       start: 'npm run start',
-      url: 'http-get://localhost:3000',
+      url: 'http-get://127.0.0.1:3000',
     }
   ],
   test: 'npm run test:cypress',
-  namedArguments: {},
+  namedArguments: {
+    expect: 200,
+  },
 });
