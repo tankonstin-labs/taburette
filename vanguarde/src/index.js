@@ -1,8 +1,7 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
-// TODO: Get rid of deprecated functions usage
-import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit';
 import { ReactNotifications } from 'react-notifications-component';
 import 'react-notifications-component/dist/theme.css';
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
@@ -27,11 +26,12 @@ const rootReducer = {
 
 const store = configureStore({
     reducer: rootReducer,
-    middleware: getDefaultMiddleware({
-        thunk: {
-            extraArgument: config,
-        },
-    }),
+    middleware: getDefaultMiddleware =>
+        getDefaultMiddleware({
+            thunk: {
+                extraArgument: config,
+            },
+        }),
     devTools: true, // TODO: Prod-prep: disable devtools in production
 });
 
