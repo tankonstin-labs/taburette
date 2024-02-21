@@ -379,7 +379,6 @@ module.exports = function (webpackEnv) {
               test: /\.svg$/,
               use: [
                 {
-                  // TODO: Review `@svgr/webpack` dep version
                   loader: require.resolve('@svgr/webpack'),
                   options: {
                     prettier: false,
