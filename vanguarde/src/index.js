@@ -10,6 +10,7 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { apiSlice } from './redux/apiSlice';
 import songReducer from './redux/songs';
 import searchReducer from './redux/search';
 
@@ -19,19 +20,20 @@ const config = {
     },
 };
 
-const rootReducer = {
-    searchReducer: searchReducer,
-    songReducer: songReducer,
-};
-
 const store = configureStore({
-    reducer: rootReducer,
+    reducer: {
+        searchReducer: searchReducer,
+        songReducer: songReducer,
+        [apiSlice.reducerPath]: apiSlice.reducer,
+    },
     middleware: getDefaultMiddleware =>
         getDefaultMiddleware({
             thunk: {
                 extraArgument: config,
             },
-        }),
+        }).concat(
+            apiSlice.middleware
+        ),
     devTools: true, // TODO: Prod-prep: disable devtools in production
 });
 
