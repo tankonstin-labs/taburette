@@ -6,10 +6,30 @@ export const apiSlice = createApi({
         baseUrl: 'http://localhost:5000/resources',
     }),
     endpoints: builder => ({
-        getReleaseById: builder.query({
-            query: (id) => `/releases/${id}`
+        getSongAndRelatedRelease: builder.query({
+            async queryFn(songId, _queryApi, _extraOptions, fetchWithBaseQuery) {
+
+                const songResult = await fetchWithBaseQuery(`/songs/${songId}`);
+                if (songResult.error)
+                    return { error: songResult.error };
+
+                const song = songResult.data;
+                const releaseResult = await fetchWithBaseQuery(`/releases/${song.release_id}`);
+
+                console.log(`${song.name}`);
+
+                return releaseResult.data
+                    ?
+                    {
+                        data: {
+                            song: song,
+                            release: releaseResult.data,
+                        }
+                    }
+                    : { error: releaseResult.error };
+            },
         }),
     }),
 });
 
-export const { useGetPostsQuery } = apiSlice;
+export const { useGetSongAndRelatedReleaseQuery } = apiSlice;
